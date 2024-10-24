@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2>Checkout</h2>
+
+  <div *ngFor="let item of cartItems" class="checkout-item">
+    <img [src]="item.image" alt="{{ item.name }}" class="img-thumbnail" width="100">
+    <div class="item-details">
+      <h5>{{ item.name }}</h5>
+      <p>{{ item.price }} EGP</p>
+      <p>Quantity: {{ item.quantity }}</p>
+    </div>
+  </div>
+
+  <div class="checkout-total mt-4">
+    <h4>Total: {{ cartTotal }} EGP</h4>
+  </div>
+
+  <div class="place-order-btn mt-4">
+    <button class="btn btn-primary" (click)="goToPayment()">Proceed to Payment</button>
+  </div>
+</div>

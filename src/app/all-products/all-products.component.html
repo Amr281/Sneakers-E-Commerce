@@ -1,0 +1,24 @@
+<!-- <p>products-list works!</p> -->
+
+
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Our Products</h2>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+      <div class="product-card card">
+        <a [routerLink]="['/product', product.id]">
+          <img [src]="product.image" alt="{{ product.name }}" class="card-img-top">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="price">{{ product.price }} EGP</p>
+          <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      

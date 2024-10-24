@@ -1,0 +1,30 @@
+<!-- <p>cart works!</p> -->
+
+
+<div class="container mt-5">
+  <h2>Your Cart</h2>
+
+  <div *ngFor="let item of cartItems" class="cart-item mb-4">
+    <img [src]="item.image" alt="{{ item.name }}" class="img-thumbnail" width="100">
+    <div class="item-details">
+      <h5>{{ item.name }}</h5>
+      <p>{{ item.price }} EGP</p>
+
+      <!-- Quantity Selector -->
+      <label for="quantity">Quantity:</label>
+      <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item)" min="1" class="form-control" style="width: 80px; display: inline-block;">
+      
+      <button class="btn btn-danger ml-2" (click)="removeFromCart(item)">Remove</button>
+    </div>
+  </div>
+
+  <!-- Cart Total -->
+  <div class="cart-total mt-4">
+    <h4>Total: {{ cartTotal }} EGP</h4>
+  </div>
+
+  <!-- Checkout Button -->
+  <div class="checkout-btn mt-4">
+    <button class="btn btn-success" (click)="goToCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
